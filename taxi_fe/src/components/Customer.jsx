@@ -20,7 +20,7 @@ function Customer(props) {
     channel.on("booking_request", dataFromPush => {
       console.log("Customer received", dataFromPush);
       setMsg1(dataFromPush.msg);
-      if (dataFromPush.charge != null || dataFromPush.msg.includes("SUERTE")) {
+      if (dataFromPush.charge != null || dataFromPush.failed || dataFromPush.msg.includes("SUERTE")) {
         setBookingId(null);
       }
     });
