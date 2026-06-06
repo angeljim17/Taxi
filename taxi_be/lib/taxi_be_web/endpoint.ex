@@ -50,6 +50,6 @@ defmodule TaxiBeWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug CORSPlug
+  plug CORSPlug, expose: ["Location"]
   plug TaxiBeWeb.Router
 end

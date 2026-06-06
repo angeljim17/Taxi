@@ -1,6 +1,13 @@
-import { Socket } from 'phoenix-socket';
+import { Socket } from 'phoenix';
 
-let socket = new Socket('ws://localhost:4000/socket', {params: {userToken: '123'}});
-socket.connect();
+let socket;
 
-export default socket;
+export function getSocket() {
+  if (!socket) {
+    socket = new Socket('ws://localhost:4000/socket', { params: { userToken: '123' } });
+    socket.connect();
+  }
+  return socket;
+}
+
+export default getSocket();
